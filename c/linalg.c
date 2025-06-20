@@ -45,7 +45,7 @@ void matmul(const char* ta, const char* tb, int n, int k, int m, float alpha, co
 {
     int lda    = lsame_(ta, "T") ? m : n;
     int ldb    = lsame_(tb, "T") ? k : m;
-    int result = sgemm_((char*)ta, (char*)tb, &n, &k, &m, &alpha, (float*)A, &lda, (float*)B, &ldb,
+    int result = sgemm_(ta, tb, &n, &k, &m, &alpha, A, &lda, B, &ldb,
                        &beta, C, &n);
     assert(result == 0);
 }
@@ -57,7 +57,7 @@ void matmulsym(const float* A_sym, const float* B, int n, int m, float* C)
     int   result = ssymm_("L" /* calculate C = A*B not C = B*A */,
                          "U" /* reference upper triangular part of A */, &n, /* rows of B/C */
                          &m,                                                 /* cols of B / C */
-                         &alpha, (float*)A_sym, &n, (float*)B, &n, &beta, C, &n);
+                         &alpha, A_sym, &n, B, &n, &beta, C, &n);
     assert(result == 0);
 }
 
@@ -137,7 +137,7 @@ void symmetricrankupdate(float* P, const float* E, int n, int m)
     float alpha = -1.0f;
     float beta  = 1.0f;
 
-    const int result = ssyrk_("U", "N", &n, &m, &alpha, (float*)E, &n, &beta, P, &n);
+    const int result = ssyrk_("U", "N", &n, &m, &alpha, E, &n, &beta, P, &n);
     assert(result == 0);
 }
 

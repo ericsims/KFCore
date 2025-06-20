@@ -9,7 +9,6 @@
  * SYSTEM INCLUDE FILES
  ******************************************************************************/
 
-#include <math.h>
 #include <assert.h>
 #include <string.h> /* memcpy */
 
@@ -19,6 +18,7 @@
 
 #include "linalg.h"
 #include "miniblas.h"
+#include "kalman_takasu.h"
 
 /******************************************************************************
  * DEFINES
@@ -153,7 +153,7 @@ void kalman_predict(float* x, float* P, const float* Phi,
         ssymm_("R" /* calculate  C = B*A = Phi_x_P = Phi*P */,
                "U" /* reference upper triangular part of A */, &n, /* rows of B/C */
                &n,                                                 /* cols of B / C */
-               &alpha, P, &n, (float*)Phi, &n, &beta, Phi_x_P, &n);
+               &alpha, P, &n, Phi, &n, &beta, Phi_x_P, &n);
 
         if (G && Q) // P = Phi*P*Phi' + G*Q*G';
         {
