@@ -12,8 +12,8 @@ SOURCES += ../c/linalg.c
 SOURCES += ../c/miniblas.c
 SOURCES += ../c/kalman_udu.c
 SOURCES += ../c/kalman_takasu.c
-SOURCES += ../cpp/kalman_takasu.cpp
-SOURCES += benchmark/benchmark.cpp
+# SOURCES += ../cpp/kalman_takasu.cpp
+# SOURCES += benchmark/benchmark.cpp
 
 HEADERS = linalg.h
 HEADERS += miniblas.h

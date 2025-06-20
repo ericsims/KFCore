@@ -512,7 +512,7 @@ int main(int argc, char** argv)
 
     printf("\n[OK] All tests completed.\n");
 
-    benchmark();
+    // benchmark();
 
     return 0;
 }
