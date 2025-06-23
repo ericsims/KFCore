@@ -44,19 +44,19 @@ extern "C"
     int lsame_(const char* a, const char* b);
 
     int strsm_(const char* side, const char* uplo, const char* transa, const char* diag, int* m,
-              int* n, float* alpha, const float* a, int* lda, float* b, int* ldb);
+              const int* n, const float* alpha, const float* a, const int* lda, float* b, const int* ldb);
 
-    int sgemm_(const char* transa, const char* transb, int* m, int* n, int* k, float* alpha, const float* a, int* lda,
-              const float* b, int* ldb, float* beta, float* c__, int* ldc);
+    int sgemm_(const char* transa, const char* transb, int* m, const int* n, const int* k, const float* alpha,
+              const float* a, const int* lda, const float* b, const int* ldb, const float* beta, float* c__, const int* ldc);
 
-    int ssyrk_(const char* uplo, const char* trans, int* n, int* k, float* alpha, const float* a, int* lda,
-              float* beta, float* c__, int* ldc);
+    int ssyrk_(const char* uplo, const char* trans, int* n, const int* k, const float* alpha, const float* a, const int* lda,
+              const float* beta, float* c__, const int* ldc);
 
-    int ssymm_(const char* side, const char* uplo, int* m, int* n, float* alpha, const float* a, int* lda, const float* b,
-              int* ldb, float* beta, float* c__, int* ldc);
+    int ssymm_(const char* side, const char* uplo, int* m, const int* n, const float* alpha, const float* a, const int* lda, const float* b,
+              const int* ldb, const float* beta, float* c__, const int* ldc);
 
     int strmm_(const char* side, const char* uplo, const char* transa, const char* diag, int* m,
-               int* n, float* alpha, float* a, int* lda, float* b, int* ldb);
+               const int* n, const float* alpha, float* a, const int* lda, float* b, const int* ldb);
 
 #ifdef __cplusplus
 }

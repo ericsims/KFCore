@@ -48,8 +48,8 @@ int lsame_(const char* a, const char* b)
     return (tolower(*a) == tolower(*b));
 }
 
-int strsm_(const char* side, const char* uplo, const char* transa, const char* diag, int* m, int* n,
-          float* alpha, const float* a, int* lda, float* b, int* ldb)
+int strsm_(const char* side, const char* uplo, const char* transa, const char* diag, int* m, const int* n,
+          const float* alpha, const float* a, const int* lda, float* b, const int* ldb)
 {
     int   i__, j, k, info;
     float temp;
@@ -516,8 +516,8 @@ int strsm_(const char* side, const char* uplo, const char* transa, const char* d
     return 0;
 }
 
-int sgemm_(const char* transa, const char* transb, int* m, int* n, int* k, float* alpha, const float* a, int* lda,
-          const float* b, int* ldb, float* beta, float* c__, int* ldc)
+int sgemm_(const char* transa, const char* transb, int* m, const int* n, const int* k, const float* alpha, const float* a,
+          const int* lda, const float* b, const int* ldb, const float* beta, float* c__, const int* ldc)
 {
     int a_dim1, a_offset, b_dim1, b_offset, c_dim1, c_offset, i__1, i__2, i__3;
     /* Local variables */
@@ -896,8 +896,8 @@ int sgemm_(const char* transa, const char* transb, int* m, int* n, int* k, float
     return 0;
 }
 
-int ssyrk_(const char* uplo, const char* trans, int* n, int* k, float* alpha, const float* a, int* lda, float* beta,
-          float* c__, int* ldc)
+int ssyrk_(const char* uplo, const char* trans, int* n, const int* k, const float* alpha, const float* a, const int* lda, const float* beta,
+          float* c__, const int* ldc)
 {
     int a_dim1, a_offset, c_dim1, c_offset, i__1, i__2, i__3;
 
@@ -1272,8 +1272,8 @@ int ssyrk_(const char* uplo, const char* trans, int* n, int* k, float* alpha, co
     return 0;
 }
 
-int ssymm_(const char* side, const char* uplo, int* m, int* n, float* alpha, const float* a, int* lda, const float* b,
-          int* ldb, float* beta, float* c__, int* ldc)
+int ssymm_(const char* side, const char* uplo, int* m, const int* n, const float* alpha, const float* a, const int* lda, const float* b,
+          const int* ldb, const float* beta, float* c__, const int* ldc)
 {
     int a_dim1, a_offset, b_dim1, b_offset, c_dim1, c_offset, i__1, i__2, i__3;
     /* Local variables */
@@ -1630,8 +1630,8 @@ int ssymm_(const char* side, const char* uplo, int* m, int* n, float* alpha, con
 }
 
 int strmm_(const char* side, const char* uplo, const char* transa, const char*
-           diag, int*m, int* n, float* alpha, float* a, int* lda, float* b,
-           int* ldb)
+           diag, int*m, const int* n, const float* alpha, float* a, const int* lda,
+           float* b, const int* ldb)
 {
     int a_dim1, a_offset, b_dim1, b_offset, i__1, i__2, i__3;
     int i__, j, k, info;
